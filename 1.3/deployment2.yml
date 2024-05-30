@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netology-deployment2
+  labels:
+    app: netology2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netology2
+  template:
+    metadata:
+      labels:
+        app: netology2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+          - containerPort: 80
+      initContainers:
+      - name: delay
+        image: busybox
+        command: ['sleep', '60']
