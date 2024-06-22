@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: joos-rb
+subjects:
+- kind: User
+  name: joos
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: joos-role
+  apiGroup: rbac.authorization.k8s.io
